@@ -1,0 +1,8 @@
+**/bin
+**/obj
+**.txt
+**.depend
+**.layout
+**.cbp
+**.o
+RandomCpp.cscope_file_list
