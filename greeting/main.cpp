@@ -1,62 +1,54 @@
 #include <iostream>
 #include <string>
 
-int main(){
+int main()
+{
+    using std::cin;
+    using std::cout;
+    using std::endl;
+    using std::string;
 
-        using std::cout;        using std::string;
-        using std::cin;        using std::endl;
+    cout << "What is your name? ";
+    string name;
+    cin >> name;
 
-        cout << "What is your name? ";
-        string name;
-        cin >> name;
+    const string greeting = "Hello, " + name + "!";
 
-        const string greeting = "Hello, " + name + "!";
+    int pad;
+    cout << "How big the spaces? ";
+    cin >> pad;
+//    pad = 2;
 
-        int pad;
-        cout << "How big the spaces? ";
-        cin >> pad;
+    const int raws = pad * 2 + 3;
+    const string::size_type cols = greeting.size() + pad * 2 + 2;
 
-        const int raws = pad * 2 + 3;
-        const string::size_type cols = greeting.size() + pad * 3 + 2;
-        cout << endl;
+    const string spaces(cols - 2, ' ');
+    const string padGreeting(pad, ' ');
+    cout << endl;
 
-        for(int r = 0; r != raws; ++r){
-
-                string::size_type c = 0;
-
-                while(c != cols){
-                        if(r == pad + 1 && c == pad + 1){
-                                cout << greeting;
-                                c +=greeting.size();
-                        } else {
-                                if(r == 0 || r == raws - 1 || c == 0 || c == cols - 1)
-                                {
-                                        cout << "*";
-                                        c++;
-                                }
-
-                                else{
-                                        string spaces(cols-2, ' ');
-                                        cout << spaces;
-                                        c += cols -2;
-                                }
-                        }
+    for (int r = 0; r != raws; ++r) {
+        string::size_type c = 0;
+        while (c != cols) {
+            if(r == pad + 1 && c == pad + 1) {
+                cout << greeting;
+                c += greeting.size();
+            }
+            else if(r == 0 || c == 0 || c == cols -1 || r == raws - 1){
+                cout << "*";
+                c++;
+            }
+            else {
+                if(r == pad + 1) {
+                    cout << padGreeting;
+                    c += pad;
                 }
-                cout << endl;
+                else {
+                    cout << spaces;
+                    c += spaces.size();
+                }
+            }
         }
-
-//
-//        const std::string spaces(greeting.size(), ' ');
-//        const std::string second = "* " + spaces + " *";
-//
-//    //    const std::string astx(greeting.size(), '*');
-//        const std::string first(second.size(), '*');
-//
-//        std::cout << std::endl;
-//        std::cout << first      <<std::endl;
-//        std::cout << second     <<std::endl;
-//        std::cout << "* " << greeting << " *" <<std::endl;
-//        std::cout << second     <<std::endl;
-//        std::cout << first      <<std::endl;
-        return 0;
+        cout << endl;
+    }
+    return 0;
 }
