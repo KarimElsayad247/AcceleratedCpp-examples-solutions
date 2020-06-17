@@ -1,10 +1,15 @@
 **/bin
 **/obj
+**/cmake-build-debug
 **.txt
 **.depend
 **.layout
 **.cbp
 **.o
 **.exe
+**.save-failed
 .vscode
+.vs/
+**.out
+**.idea
 RandomCpp.cscope_file_list

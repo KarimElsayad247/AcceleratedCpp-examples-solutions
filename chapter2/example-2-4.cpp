@@ -32,12 +32,27 @@ int main()
 
         while (c != cols)
         {
-            if(r == 0 || r == rows - 1){
-                cout << (cols, '*');
-                c += cols - 1;
+            if (r == pad + 1 && c == pad + 1)
+            {
+                cout << greeting;
+                c += greeting.size();
             }
+            else
+            {
+                if (r == 0 || r == raws - 1 || c == 0 || c == cols - 1)
+                {
+                    cout << "*";
+                    c++;
+                }
+
+                else
+                {
+                    string spaces(cols - 2, ' ');
+                    cout << spaces;
+                    c += cols - 2;
+                }
+            }
+            cout << endl;
         }
-        cout << endl;
+        return 0;
     }
-    return 0;
-}
