@@ -3,6 +3,8 @@
 #include <vector>
 #include <iostream>
 
+#include "split.h"
+
 using namespace std;
 
 // find all the lines that refer to each word in the input

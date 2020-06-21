@@ -4,9 +4,9 @@ CFLAGS = -pedantic -Wall -Wextra -Wcast-align -Wcast-qual -Wctor-dtor-privacy \
 		 -Wredundant-decls -Wshadow -Wsign-conversion -Wsign-promo -Wstrict-null-sentinel \
 		 -Wstrict-overflow=5 -Wswitch-default -Wundef -Werror -Wno-unused
 
-OBJECTS = main.o split.o table.o
+OBJECTS = main.o split.o table.o xref.o
 
-SOURCE = main.cpp split.cpp table.cpp
+SOURCE = main.cpp split.cpp table.cpp xref.c
 
 out: $(OBJECTS)
 	g++ $(OBJECTS) -o crossReference.exe
@@ -19,6 +19,8 @@ split: split.cpp split.h
 
 table: table.cpp table.h
 	g++ $(CFLAGS) -c table.cpp	
+
+xref: xref.cpp xref.h
 
 touch_all:
 	touch $(SOURCE)
