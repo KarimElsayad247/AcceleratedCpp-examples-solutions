@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
-
+#include <algorithm>
 #include "split.h"
 
 using namespace std;
@@ -22,6 +22,11 @@ map<string, vector<int> > xref(istream& in,
         //break the input into words
         vector<string> words = find_words(line);
         
+        // get rid of duplicates so words are inserted only once 
+        // in a line
+        sort(words.begin(), words.end());
+        words.erase(unique(words.begin(), words.end()), words.end());
+
         // remember that each word occurs on the current line
         for (vector<string>::const_iterator it = words.begin();
             it != words.end(); ++it) {
